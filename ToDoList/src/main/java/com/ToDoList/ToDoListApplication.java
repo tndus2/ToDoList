@@ -14,6 +14,7 @@ public class ToDoListApplication {
 		SpringApplication.run(ToDoListApplication.class, args);
 		
 		System.out.println("test123");
+		System.out.println("커밋테스트");
 	}
 
 }
