@@ -12,5 +12,10 @@ public class MybaService {
 	
 	@Autowired
 	TestMapper mapper;
+
+	public String mybatisDbTest() {
+		String name = mapper.mybatisDbTest();
+		return name;
+	}
 	
 }
