@@ -21,7 +21,7 @@ public class MybaController {
 		//System.out.println("여기");
 		log.info("log : {} ","여기");
 		String contents = mybaService.mybatisDbTest();
-
+		log.info("오늘 내가 할 일 :: {} ", contents);
 		return "오늘 내가 할 일 :: " + contents;
 	}
 
