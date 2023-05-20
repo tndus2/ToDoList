@@ -8,9 +8,14 @@ module.exports = defineConfig({
   // npm run serve 프론트 개발 서버 포트가 다르기 떄문에 프록시 설정을 해야함
   // target : 백엔드 port가 들어감
   // changeOrigin -> true로 해야 cors 문제 해결 할 수 있음.
+
+  // 개발 서버 설정
   devServer: {
+    // 프록시 설정
     proxy : {
+      // 프록시 요청을 보낼 api의 시작 부분
       '/' : {
+        // 프록시 요청을 보낼 서버의 주소
         target : "http://localhost:4860",
         changeOrigin: true,
       }
