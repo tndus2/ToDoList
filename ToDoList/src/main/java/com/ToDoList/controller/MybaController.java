@@ -14,12 +14,13 @@ public class MybaController {
 	@Autowired
 	MybaService mybaService;
 	
-	@RequestMapping(value = "/")
+	@GetMapping(value = "/test")
 	public String mybatisDbTest() {
+		System.out.println("여기");
 		
-		String name = mybaService.mybatisDbTest();
+		String contents = mybaService.mybatisDbTest();
 
-		return "name :: " + name;
+		return "오늘 내가 할 일 :: " + contents;
 	}
 
 }

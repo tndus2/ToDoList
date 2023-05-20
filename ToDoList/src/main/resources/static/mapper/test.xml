@@ -7,10 +7,10 @@
 	</select>
 	
 	<select id="mybatisDbTest" resultType="string">
-		SELECT USER_NAME 
-		FROM TODOLIST.MYBATIS_TEST
-		WHERE 1=1
-		AND USER_TEL = '010-8495-0740'
+		select contents 
+		from todolist.To_Do_List
+		where 1=1
+		and date_format(reg_date, 'YYYYMMDD') = date_format('2023-05-20', 'YYYYMMDD')
 	</select>
 
 </mapper>
