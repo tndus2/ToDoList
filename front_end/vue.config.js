@@ -13,8 +13,10 @@ module.exports = defineConfig({
       '/' : {
         target : "http://localhost:4860",
         changeOrigin: true,
+        ws : false,
       }
     }
-  }
+  },
+  lintOnSave:false
 
 })

@@ -1,15 +1,39 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <List/>
+  <h1> {{ connectData }}</h1>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import List from './components/List.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    List : List
+  },
+  data(){
+    return {
+      connectData : "", 
+    }
+  },
+  mounted(){
+    console.log("test")
+    this.toss();
+  },
+  methods: {
+    toss(){
+      console.log("여기?");
+      this.axios.get('/test')
+      .then( (res) => {
+        this.connectData = res.data;
+        console.log(res.data);
+      })
+      .catch( ()=>{
+        console.log('fail')
+      })
+
+  }
   }
 }
 </script>
