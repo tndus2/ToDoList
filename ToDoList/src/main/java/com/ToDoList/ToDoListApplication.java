@@ -16,8 +16,5 @@ public class ToDoListApplication {
 		
 	}
 	
-	@RequestMapping(value = "/")
-	public String dbTest() {
-		return null;
-	}
+
 }

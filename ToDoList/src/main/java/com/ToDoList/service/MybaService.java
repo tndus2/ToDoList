@@ -14,8 +14,8 @@ public class MybaService {
 	TestMapper mapper;
 
 	public String mybatisDbTest() {
-		String name = mapper.mybatisDbTest();
-		return name;
+		String contents = mapper.mybatisDbTest();
+		return contents;
 	}
 	
 }

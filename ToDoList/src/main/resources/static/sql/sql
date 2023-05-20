@@ -1,0 +1,29 @@
+테이블명 : To_Do_List
+컬럼 : contents(내용) not null varchar(50)
+	  reg_date(등록일자) not null timestamp
+	  del_yn(삭제여부) null varchar(5)
+	  pk -> contents, reg_date
+	  
+	  
+--- To_Do_List 테이블 생성
+create table To_Do_List (
+    reg_date timestamp not null,
+	contents varchar(50) not null,
+	del_yn varchar(5) null,
+	primary key (reg_date, contents)
+);
+
+
+-- 더미 데이터 예시
+insert into todolist.To_Do_List (
+									reg_date,
+                                    contents,
+                                    del_yn
+								)
+						values(
+									now(),
+                                    '하성민 괴롭히기',
+                                    'N'
+								);  
+
+	  
