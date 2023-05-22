@@ -1,17 +1,21 @@
 <template>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control " placeholder="입력해주세요" maxlength="30" size="30">
+    <button @click="add" @change="inputTodo" class="btn btn-danger" type="button" id="button-addon1">등록</button>
+  </div>
+
   <ul class="list-group">
-  <li class="list-group-item">
-    <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckboxStretched">
-    <label class="form-check-label stretched-link" for="firstCheckboxStretched">{{connectData}}</label>
-  </li>
-  <li class="list-group-item">
-    <input class="form-check-input me-1" type="checkbox" value="" id="secondCheckboxStretched">
-    <label class="form-check-label stretched-link" for="secondCheckboxStretched">Second checkbox</label>
-  </li>
-  <li class="list-group-item">
-    <input class="form-check-input me-1" type="checkbox" value="" id="thirdCheckboxStretched">
-    <label class="form-check-label stretched-link" for="thirdCheckboxStretched">Third checkbox</label>
-  </li>
+    <li class="list-group-item" v-for="i in count" :key="i">
+      <input class="form-check-input me-1 check" type="checkbox" value="" id="firstCheckboxStretched">
+      <!-- <label class="form-check-label stretched-link" for="firstCheckboxStretched">{{connectData}}</label> -->
+      <!-- <input type="text" class="todoText" :value="inputText" maxlength="30" size="30" readonly> -->
+      <p class="todoText">{{ posts }}</p>
+      <div class="btnMix">
+        <input type="submit" class="btn btn-danger todoFix" value="수정">
+        <input type="submit" class="btn btn-danger todoDelete" value="삭제">
+      </div>
+      
+    </li>
   </ul>
 </template>
 
@@ -19,12 +23,66 @@
 export default {
   name : 'List',
   props : {
-    connectData  : Array,
+    posts  : Array,
+    count : Number,
+  },
+  data(){
+    return {
+      text : '',
+      inputText : '',
+    }
+  },
+  methods :{
+    inputTodo(e){
+      return this.inputText = e.target.value
+    },
+    add(){
+      this.$emit('plus',this.text)
+      return this.text = this.inputText
+    }
   }
 
 }
 </script>
 
 <style>
+.plus {
+  margin-bottom: 5px;
+}
+.btn-light{
+  display: flex;
+  border-color: gray;
+  border-radius: 100%;
+  border-width: 3px;
+  color : gray;
+  font-weight: 1000;
+}
 
+.list-group{
+  position: relative;
+}
+
+.check {
+  float: left;
+  margin-top: 10px;
+}
+.todoText{
+  border: none;
+  float: left;
+  margin-left: 5px;
+}
+.todoText:focus{
+  outline: none;
+}
+
+.todoAdd{
+
+}
+
+.btnMix{
+  float: right;
+}
+.btnMix > input {
+  margin-left: 5px;
+}
 </style>

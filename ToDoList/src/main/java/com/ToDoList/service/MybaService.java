@@ -17,5 +17,9 @@ public class MybaService {
 		String contents = mapper.mybatisDbTest();
 		return contents;
 	}
-	
+
+	public String writeTodo() {
+		String contents = mapper.mybatisWriteTodo();
+		return contents;
+	}
 }

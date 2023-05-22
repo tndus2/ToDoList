@@ -9,4 +9,6 @@ public interface TestMapper {
 	public Integer testMapper(String findStr);
 
 	public String mybatisDbTest();
+
+	public String mybatisWriteTodo();
 }

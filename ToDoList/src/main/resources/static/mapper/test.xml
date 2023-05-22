@@ -13,4 +13,18 @@
 		and date_format(reg_date, 'YYYYMMDD') = date_format('2023-05-20', 'YYYYMMDD')
 	</select>
 
+	<insert id="mybatisWriteTodo">
+		insert
+		into todolist.To_Do_List (
+			reg_date,
+			contents,
+			del_yn
+		)
+		values(
+			now(),
+			#{contents},
+			'N'
+		);
+	</insert>
+
 </mapper>

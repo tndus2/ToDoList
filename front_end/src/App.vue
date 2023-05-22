@@ -1,8 +1,10 @@
 <template>
   <div class="container">
     <img class="logo" alt="logo" src="./assets/json.png">
-    <List :connectData="connectData"/>
+    <List @plus="count++" :count="count" :connectData="connectData"/>
     <!-- <h1> {{ connectData }}</h1> -->
+    <!-- 로그찍기용 임시 -->
+    {{ count }}
   </div>  
 </template>
 
@@ -17,6 +19,8 @@ export default {
   data(){
     return {
       connectData : [], 
+      count : 0,
+      text : '',
     }
   },
   mounted(){
@@ -32,10 +36,9 @@ export default {
         console.log(res.data);
       })
       .catch( (err)=>{
-        console.error(err)
+        console.error(err);
       })
-
-  }
+    }
   }
 }
 </script>
