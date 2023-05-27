@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
                         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ToDoList.mybatis.TestMapper">
+<mapper namespace="com.ToDoList.repository.mapper.TestMapper">
 	<select id="testMapper" resultType="string">
 		select curdate()
 	</select>
@@ -12,6 +12,7 @@
 		where 1=1
 		and date_format(reg_date, 'YYYYMMDD') = date_format('2023-05-20', 'YYYYMMDD')
 	</select>
+
 
 	<insert id="mybatisWriteTodo">
 		insert
@@ -26,5 +27,9 @@
 			'N'
 		);
 	</insert>
+
+	<select id="findAllList" resultType="Todos">
+		SELECT * FROM todolist.To_Do_List order by reg_date asc;
+	</select>
 
 </mapper>

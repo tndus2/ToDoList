@@ -26,4 +26,5 @@ insert into todolist.To_Do_List (
                                     'N'
 								);  
 
+insert into todolist.To_Do_List (reg_date, contents, del_yn) values( now(), '명수연 꼬집기', 'N');
 	  

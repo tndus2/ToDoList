@@ -1,24 +1,25 @@
 <template>
   <div class="container">
     <img class="logo" alt="logo" src="./assets/json.png">
-    <List @plus="count++" :count="count" :connectData="connectData"/>
+    <Container @plus="count++" :count="count" :posts="posts"/>
     <!-- <h1> {{ connectData }}</h1> -->
     <!-- 로그찍기용 임시 -->
-    {{ count }}
+    <p>할 일 : {{ count }} 개 </p>
   </div>  
 </template>
 
 <script>
-import List from './components/List.vue';
+import Container from './components/Container.vue';
 
 export default {
   name: 'App',
   components: {
-    List : List
+    Container : Container
   },
   data(){
     return {
-      connectData : [], 
+      posts : [{
+      }], 
       count : 0,
       text : '',
     }
@@ -29,11 +30,17 @@ export default {
   },
   methods: {
     toss(){
-      console.log("여기?");
-      this.axios.get('/test')
+      // this.axios.get('/test')
+      this.axios.get('/all')
       .then( (res) => {
-        this.connectData = res.data;
+        this.posts = res.data;
+
+        // 이거 쓰고 싶은데 안됨 ㅠㅠ 
+        // console.log("길이 "+ this.posts.length)
+        // this.count = this.posts.length;
         console.log(res.data);
+        console.log(this.count);
+
       })
       .catch( (err)=>{
         console.error(err);
